@@ -1,0 +1,52 @@
+/*
+Write a program to print all the LEADERS in the array. An element is leader if it is greater than all the elements to its right side.
+
+And the rightmost element is always a leader. 
+
+For example int the array {16, 19, 4, 3, 8, 3}, leaders are 19, 8 and 3
+*/
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int
+main ()
+{
+  vector < int >v;
+  int n;
+  cout << "Enter the length:- " << endl;
+  cin >> n;
+  cout << "Enter the elements:-";
+  for (int i = 0; i < n; i++)
+    {
+      int x;
+      cin >> x;
+      v.push_back (x);
+    }
+
+  int flag = 0;
+  for (auto it = v.begin (); it != v.end (); it++)
+    {
+      for (auto ty = (it + 1); ty < v.end (); ty++)
+	{
+	  if ((*ty) > (*it))
+	    {
+	      break;
+	    }
+
+	  if (ty == (--v.end()))
+	    {
+	      cout << *it<<" ";
+	      break;
+	    }
+	    
+	}
+	if(it==(--v.end()))
+	    {
+	        cout<<*it;
+	        
+	    }
+    }
+
+  return 0;
+}
